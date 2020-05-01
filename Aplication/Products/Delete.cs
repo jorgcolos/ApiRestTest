@@ -1,6 +1,8 @@
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Aplication.Errors;
 using MediatR;
 using Persistence;
 
@@ -25,8 +27,8 @@ namespace Aplication.Products
             {
                 var product = await _context.Products.FindAsync(request.Id);
 
-                if(product == null)
-                    throw new Exception("Could not find Product");
+                if (product == null)
+                    throw new RestException(HttpStatusCode.NotFound, new { product = "Product Not Found" });
 
                 _context.Remove(product);
 

@@ -1,6 +1,9 @@
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Aplication.Errors;
+using FluentValidation;
 using MediatR;
 using Persistence;
 
@@ -17,7 +20,16 @@ namespace Aplication.Products
             public double? Price { get; set; }
             public string Description { get; set; }
         }
-
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator()
+            {
+                //RuleFor(x => x.SKU).NotEmpty();
+                RuleFor(x => x.Name).NotEmpty();
+                RuleFor(x => x.Quantity).NotEmpty();
+                RuleFor(x => x.Price).NotEmpty();
+            }
+        }
         public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
@@ -30,14 +42,14 @@ namespace Aplication.Products
             {
                 var product = await _context.Products.FindAsync(request.Id);
 
-                if(product == null)
-                    throw new Exception("Could not find product");
-                
+                if (product == null)
+                    throw new RestException(HttpStatusCode.NotFound, new { product = "Product Not Found" });
+
                 product.SKU = request.SKU ?? product.SKU;
                 product.Name = request.Name ?? product.Name;
                 product.Quantity = request.Quantity ?? product.Quantity;
                 product.Price = request.Price ?? product.Price;
-                product.Description = request.Description ?? request.Description;  
+                product.Description = request.Description ?? request.Description;
 
                 var success = await _context.SaveChangesAsync() > 0;
 
