@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wT414orl94u5PbQ0TXeDNAoYPKrElAovIPcJufIUavsnGugx0xx/qx/hsX/UhgLq0xhi692TjEB/MFRzzi7KKQ==",
+  "dgSpecHash": "4OG8rNbR3yPsgpMsYRebfDfVw8OK4o+C2IUh1dWJsXiCYxHiqUSuyISAUuz4Z2TBKyKunxFrb4Y1e1nexwF9fg==",
   "success": true,
   "projectFilePath": "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
