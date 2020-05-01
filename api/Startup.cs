@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Aplication.Products;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,7 +33,16 @@ namespace api
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    //.WithOrigins('url') a produccion deberia agregarse el origin para que puedan tener accesos
+                });
+            });
             
+            services.AddMediatR(typeof(List.Handler).Assembly);          
             services.AddControllers();
         }
 
@@ -43,8 +54,10 @@ namespace api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
+            app.UseCors("CorsPolicy");
+            
             app.UseRouting();
 
             app.UseAuthorization();

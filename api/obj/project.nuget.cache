@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "4cPRwvzTd9+eOjb0+6xHxbuVQe2h2RciodTqYX8DvEiDc/Yw8sqEB9TMioVe+KhN3UJKJpNwEnvH5m9oEmIkPA==",
+  "dgSpecHash": "qw66PdAOAeMS9xzO7oGoixf1MLDzWOZkEjCcR/NSl9W0NcJ2oS/BX3BW+sOq+ovlrIjfUy8S7OvJZr8ebJmumw==",
   "success": true,
   "projectFilePath": "C:\\Repo\\ApiRestTest\\api\\api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jaherrera\\.nuget\\packages\\mediatr\\8.0.0\\mediatr.8.0.0.nupkg.sha512",
+    "C:\\Users\\jaherrera\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\8.0.0\\mediatr.extensions.microsoft.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\jaherrera\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\jaherrera\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\jaherrera\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
