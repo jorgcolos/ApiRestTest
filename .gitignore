@@ -6,3 +6,5 @@ Domain/bin/
 Domain/obj/
 Persistence/bin/
 Persistence/obj/
+Infrastructure/obj/
+Infrastructure/bin/
