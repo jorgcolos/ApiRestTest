@@ -1,14 +1,59 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Domain;
+using Microsoft.AspNetCore.Identity;
 
 namespace Persistence
 {
     public class Seed
     {
-        public static void seedData(DataContext context)
+        public static async Task seedData(DataContext context, UserManager<AppUser> userManager)
         {
+            if (!userManager.Users.Any())
+            {
+                var users = new List<AppUser>
+                {
+                    new AppUser
+                    {
+                        UserName = "jorge",
+                        Email = "jorgcolos@gmail.com",
+                        PhoneNumber = "22577777",
+                        Name = "Jorge Herrera",
+                        Birthday = DateTime.Parse("22/08/1989")
+                    },
+                    new AppUser
+                    {
+                        UserName = "efrain",
+                        Email = "efrain@elaniin.com",
+                        PhoneNumber = "71000000",
+                        Name = "Efrain Ortiz",
+                        Birthday = DateTime.Parse("01/01/1987")
+                    },
+                    new AppUser
+                    {
+                        UserName = "rony",
+                        Email = "rony@elaniin.com",
+                        PhoneNumber = "22777777",
+                        Name = "Rony Almendarez",
+                        Birthday = DateTime.Parse("02/02/1991")
+                    },
+                    new AppUser
+                    {
+                        UserName = "test",
+                        Email = "test@email.com",
+                        PhoneNumber = "12345678",
+                        Name = "User Test",
+                        Birthday = DateTime.Parse("04/04/1980")
+                    }
+                };
+
+                foreach (var user in users)
+                {
+                    await userManager.CreateAsync(user, "Elaniin@01");
+                }
+            }
             if (!context.Products.Any())
             {
                 var products = new List<Product>
@@ -78,7 +123,7 @@ namespace Persistence
                     }
                 };
                 context.Products.AddRange(products);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
     }

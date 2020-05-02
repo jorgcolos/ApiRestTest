@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Repo\\ApiRestTest\\api\\api.csproj": {}
+    "c:\\Repo\\ApiRestTest\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\Repo\\ApiRestTest\\api\\api.csproj": {
+    "c:\\Repo\\ApiRestTest\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repo\\ApiRestTest\\api\\api.csproj",
+        "projectUniqueName": "c:\\Repo\\ApiRestTest\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Repo\\ApiRestTest\\api\\api.csproj",
+        "projectPath": "c:\\Repo\\ApiRestTest\\api\\api.csproj",
         "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
-        "outputPath": "C:\\Repo\\ApiRestTest\\api\\obj\\",
+        "outputPath": "c:\\Repo\\ApiRestTest\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj": {
-                "projectPath": "C:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj"
+              "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj": {
+                "projectPath": "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj"
+              },
+              "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -45,6 +48,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
               "version": "[3.1.2, )"
@@ -72,14 +83,14 @@
         }
       }
     },
-    "C:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj": {
+    "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj",
+        "projectUniqueName": "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj",
         "projectName": "Aplication",
-        "projectPath": "C:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj",
+        "projectPath": "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj",
         "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
-        "outputPath": "C:\\Repo\\ApiRestTest\\Aplication\\obj\\",
+        "outputPath": "c:\\Repo\\ApiRestTest\\Aplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -98,11 +109,11 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj"
+              "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj"
               },
-              "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj"
+              "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj": {
+                "projectPath": "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -158,14 +169,14 @@
         }
       }
     },
-    "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
+    "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj",
+        "projectUniqueName": "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj",
+        "projectPath": "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
-        "outputPath": "C:\\Repo\\ApiRestTest\\Domain\\obj\\",
+        "outputPath": "c:\\Repo\\ApiRestTest\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -194,6 +205,12 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -227,14 +244,14 @@
         }
       }
     },
-    "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj": {
+    "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj",
-        "projectName": "Persistence",
-        "projectPath": "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
-        "outputPath": "C:\\Repo\\ApiRestTest\\Persistence\\obj\\",
+        "outputPath": "c:\\Repo\\ApiRestTest\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -253,8 +270,87 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj"
+              "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj": {
+                "projectPath": "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
+        "outputPath": "c:\\Repo\\ApiRestTest\\Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jaherrera\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj"
               }
             }
           }
