@@ -14,9 +14,9 @@ namespace api.Controllers
         [HttpGet]
         [AllowAnonymous]
         //get all the products
-        public async Task<ActionResult<List<ProductDTO>>> List()
+        public async Task<ActionResult<List.ProductsEnvelope>> List(int? limit, int? offset, string name, string sku, double? startPrice, double? endPrice)
         {
-            return await Mediator.Send(new List.Query());
+            return await Mediator.Send(new List.Query(limit, offset, name, sku, startPrice, endPrice));
         }
 
         [HttpGet("{id}")]

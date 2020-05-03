@@ -14,9 +14,9 @@ namespace api.Controllers
         [HttpGet]
         [AllowAnonymous]
         //List of all Users
-        public async Task<ActionResult<List<AppUser>>> List()
+        public async Task<ActionResult<List.UsersEnvelope>> List(int? limit, int? offset, string name)
         {
-            return await Mediator.Send(new List.Query());
+            return await Mediator.Send(new List.Query(limit, offset, name));
         }
 
         [HttpGet("{id}")]

@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Errors;
 using AutoMapper;
 using Domain;
 using MediatR;
@@ -11,9 +14,32 @@ namespace Application.Products
 {
     public class List
     {
-        public class Query : IRequest<List<ProductDTO>> { }
+        public class ProductsEnvelope
+        {
+            public List<ProductDTO> Products { get; set; }
+            public int ProductCount { get; set; }
+        }
+        public class Query : IRequest<ProductsEnvelope>
+        {
+            public Query(int? limit, int? offset, string name, string Sku, double? startPrice, double? endPrice)
+            {
+                Limit = limit;
+                Offset = offset;
+                Name = name;
+                SKU = Sku;
+                StartPrice = startPrice;
+                EndPrice = endPrice;
 
-        public class Handler : IRequestHandler<Query, List<ProductDTO>>
+            }
+            public int? Limit { get; set; }
+            public int? Offset { get; set; }
+            public string Name { get; set; }
+            public string SKU { get; set; }
+            public double? StartPrice { get; set; }
+            public double? EndPrice { get; set; }
+        }
+
+        public class Handler : IRequestHandler<Query, ProductsEnvelope>
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
@@ -24,11 +50,32 @@ namespace Application.Products
             }
 
 
-            public async Task<List<ProductDTO>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<ProductsEnvelope> Handle(Query request, CancellationToken cancellationToken)
             {
-                var products = await _context.Products.ToListAsync();
+                if(request.StartPrice >= request.EndPrice)
+                    throw new RestException(HttpStatusCode.NotFound, new { product = "Start price can't be less that maximun price" });
 
-                return _mapper.Map<List<Product>, List<ProductDTO>>(products);
+
+                var queryable = _context.Products
+                .Where(x => x.Price >= request.StartPrice && x.Price <= request.EndPrice)
+                .AsQueryable();
+
+                if (request.Name != null)
+                    queryable = queryable.Where(x => x.Name.Contains(request.Name));
+
+                if (request.SKU != null)
+                    queryable = queryable.Where(x => x.SKU.Contains(request.SKU));
+
+                var products = await queryable
+                .Skip(request.Offset ?? 0)
+                .Take(request.Limit ?? 3).ToListAsync();
+
+                return new ProductsEnvelope
+                {
+                    Products = _mapper.Map<List<Product>, List<ProductDTO>>(products),
+                    ProductCount = queryable.Count()
+                };
+
             }
         }
     }
