@@ -52,13 +52,20 @@ namespace Application.Products
 
             public async Task<ProductsEnvelope> Handle(Query request, CancellationToken cancellationToken)
             {
-                if(request.StartPrice >= request.EndPrice)
+                if (request.StartPrice >= request.EndPrice)
                     throw new RestException(HttpStatusCode.NotFound, new { product = "Start price can't be less that maximun price" });
 
 
                 var queryable = _context.Products
-                .Where(x => x.Price >= request.StartPrice && x.Price <= request.EndPrice)
                 .AsQueryable();
+
+                if (request.StartPrice != null || request.EndPrice != null)
+                {
+                    var startPrice = request.StartPrice ?? 0;
+                    var endPrice = request.EndPrice ?? 999999.99;
+
+                    queryable = queryable.Where(x => x.Price >= startPrice && x.Price <= endPrice);
+                }
 
                 if (request.Name != null)
                     queryable = queryable.Where(x => x.Name.Contains(request.Name));
