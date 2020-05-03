@@ -64,7 +64,7 @@ En caso de querer cambiar las variables guardadas en postman para apuntar a una 
 
 ## Importante
 
-la mayoría de endpoints se les agrego [AllowAnonymus] por motivos de facilidad en las pruebas, se dejó validado el endpoint **CreateProduct Token Validator** para mostrar la funcionalidad de un usuario no autorizado, pero solo es necesario remover el [AllowAnonymus] en los controladores y todos los endpoints necesitarían tener un usuario logueado
+La mayoría de endpoints se les agrego [AllowAnonymus] por motivos de facilidad en las pruebas, se dejó validado el endpoint **CreateProduct Token Validator** para mostrar la funcionalidad de un usuario no autorizado, pero solo es necesario remover el [AllowAnonymus] en los controladores y todos los endpoints necesitarían tener un usuario logueado
 
 **Para logearse con cualquier usuario utilizar la siguiente contraseña: Elaniin@01**
 
@@ -75,6 +75,7 @@ la mayoría de endpoints se les agrego [AllowAnonymus] por motivos de facilidad 
 
 ### Tecnologias y paquetes
 
+* Sourcetree - Herramienta de versionamiento para Git
 * JWT - Creacion de tokens
 * FluentValidation - Validacion de campos
 * MediatR - Desacoplar la gestion de mensages
