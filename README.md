@@ -4,16 +4,16 @@ Creación de una Api Rest con .net core 3.2 y SQL Server para la prueba de Elani
 
 ## Iniciando
 
-Para poder inicializar el proyecto se deja una colección en postman para poder ejecutar todos los CRUD junto con sus respectivas validaciones, tanto de manera local como en ambiente de producción mediante la separación en carpetas para cada ambiente, a continuacion se detallan los prerequisitos y la manera para inicializar el proyecto
+Para poder inicializar el proyecto se deja una colección en postman para poder ejecutar todos los CRUD junto con sus respectivas validaciones, tanto de manera local como en ambiente de producción mediante la separación en carpetas para cada ambiente, a continuacion se detallan los prerequisitos y la manera para inicializar el proyecto.
 
-### Prerequisites
+### Prerrequisitos
 
  * Version de .Net Core 3.2.1 
  * Visual Studio Code o Microsoft visual studio 2019
  * SLQ Server 2012 o superior
  * Postman
 
-### Installing
+### Ejecutando 
 
 Clonar el repositorio de Git a su máquina local y abrir la carpeta con visual studio code o inicializar con microsoft visual studio 2019 dando clic en ApiRestTest.sln para que cargue el proyecto.
 
@@ -21,12 +21,13 @@ Posterior abrir el archivo appsettings.Development.json y aquí es necesario mod
 
 ```
 "Data Source=SQLTEST\\SQL2K8R2;Initial Catalog=ComputerSupplies;Trusted_Connection=True;MultipleActiveResultSets=true"
-
 ```
 
-Una vez se haya realizado este cambio y guardado podemos proceder a iniciar el código, no es necesario crear la base de datos o ejecutar los scripts dado que en el proyecto se ha configurado Seeders para todas las tablas que se inicializa una vez se ejecute el proyecto de manera local.
+Una vez se haya realizado este cambio y guardado podemos proceder a iniciar el código, no es necesario crear la base de datos o ejecutar los scripts dado que en el proyecto se ha configurado con la creacion de la base de datos y los Seeders necesarios para todas las tablas que se inicializa una vez se ejecute el proyecto de manera local.
 
-Para ejecutar el proyecto desde visual studio code es necesario abrir la terminal desde Terminal new terminal o nueva terminal y ejecutar los siguientes comandos:
+Si se **utiliza Visual Studio 2019** únicamente es necesario darle clic a ejecutar para iniciar el proyecto (solo asegurarse que el proyecto api sea el principal al ejecutar el código.
+
+Para ejecutar el proyecto desde **visual studio code** es necesario abrir la terminal desde Terminal new terminal o nueva terminal y ejecutar los siguientes comandos:
 
 ```
 cd api
@@ -35,16 +36,16 @@ cd api
 dotnet watch run
 ```
 
+
 Al presionar enter saldrá lo siguiente: 
 
-agregar Imagen
+![apiStarted](Documentation/ImagesReadme/apiStarted.PNG)
 
 Luego de esto podemos entrar a SQL Server Management Studio refrescar la data y debería de haberse creado la base de datos con sus respectivas tablas y data. 
 
-**Si no se crea la base de datos automáticamente** En caso que no se haya creado la Base de datos realizar el siguiente paso, caso contrario omitir, ejecutar los scripts en SQL Server Management Studio que se encuentran en el proyecto dentro de la carpeta Documents/SQL  en el siguiente orden
+**Si no se crea la base de datos automáticamente** En caso que no se haya creado la Base de datos realizar el siguiente paso, caso contrario omitir, ejecutar los scripts en SQL Server Management Studio que se encuentran en el proyecto dentro de la carpeta Documents/SQL 
 
- * CreateDBComputerSupplies.sql
- * InsertData.sql
+ * DBComputerSupplies.sql
 
 ### Cargando la colección dentro de Postman
 
@@ -55,7 +56,11 @@ una vez cargue la colección ir a la tab de Collections y ahí aparecerá nuestr
 La carpeta LocalHost contiene los enpoints apuntando a LocalHost:5000 para poder ejecutarlos localmente 
 La carpeta Produccion contiene los enpoints apuntando a una url donde se encuentra el api publicada
 
-Los endpoint posee una descripción de lo que realiza cada uno y adicional en la carpeta Documents/Postman se adjunta un documento Word donde explica cada uno de ellos
+Los endpoint posee una descripción de lo que realiza cada uno y adicional en la carpeta Documents/Postman se adjunta un documento Word donde explica cada uno de ellos.
+
+En caso de querer cambiar las variables guardadas en postman para apuntar a una url diferente entrar a editar la colección e ir a la tab de Variables, ahí se encuentran las dos variables utilizadas en esta colección, al cambiarla se cambia en automático todos los endpoint.
+
+![PostmanVariables](Documentation/ImagesReadme/PostmanVariables.PNG)
 
 ## Api realizada con 
 
@@ -64,12 +69,11 @@ Los endpoint posee una descripción de lo que realiza cada uno y adicional en la
 
 ### Tecnologias y paquetes
 
-* JWT 
-* FluentValidation
-* MediatR
-* AutoMapper
-* Entity Framework Core 
-* Cloudinary
+* JWT - Creacion de tokens
+* FluentValidation - Validacion de campos
+* MediatR - Desacoplar la gestion de mensages
+* AutoMapper - Mappeo de un objeto a otro 
+* Cloudinary - Servidor para almacenamiento de imagenes
 
 ## Autor
 
