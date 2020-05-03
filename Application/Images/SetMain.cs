@@ -30,6 +30,9 @@ namespace Application.Images
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
                 var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == request.IdProduct);
+                
+                if (product == null)
+                    throw new RestException(HttpStatusCode.NotFound, new { Product = "Not found" });
 
                 var image = product.Images.FirstOrDefault(x => x.Id == request.Id);
 

@@ -46,7 +46,7 @@ namespace api.Controllers
         [HttpPut("{id}")]
         [AllowAnonymous]
         //Edit a product by id
-        public async Task<ActionResult<Unit>> Edit(int id, Edit.Command command)
+        public async Task<ActionResult<ProductDTO>> Edit(int id, Edit.Command command)
         {
             command.Id = id;
             return await Mediator.Send(command);

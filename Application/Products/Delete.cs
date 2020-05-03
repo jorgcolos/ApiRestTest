@@ -1,9 +1,11 @@
 using System;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Errors;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Products
@@ -26,6 +28,11 @@ namespace Application.Products
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
                 var product = await _context.Products.FindAsync(request.Id);
+
+                foreach (var image in product.Images)
+                {
+                    _context.Remove(image);
+                }
 
                 if (product == null)
                     throw new RestException(HttpStatusCode.NotFound, new { product = "Product Not Found" });

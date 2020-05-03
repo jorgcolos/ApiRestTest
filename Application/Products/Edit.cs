@@ -3,6 +3,8 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Errors;
+using AutoMapper;
+using Domain;
 using FluentValidation;
 using MediatR;
 using Persistence;
@@ -11,7 +13,7 @@ namespace Application.Products
 {
     public class Edit
     {
-        public class Command : IRequest
+        public class Command : IRequest<ProductDTO>
         {
             public int Id { get; set; }
             public string SKU { get; set; }
@@ -30,15 +32,17 @@ namespace Application.Products
                 RuleFor(x => x.Price).NotEmpty();
             }
         }
-        public class Handler : IRequestHandler<Command>
+        public class Handler : IRequestHandler<Command, ProductDTO>
         {
             private readonly DataContext _context;
-            public Handler(DataContext context)
+            private readonly IMapper _mapper;
+            public Handler(DataContext context, IMapper mapper)
             {
+                this._mapper = mapper;
                 _context = context;
             }
 
-            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<ProductDTO> Handle(Command request, CancellationToken cancellationToken)
             {
                 var product = await _context.Products.FindAsync(request.Id);
 
@@ -53,7 +57,13 @@ namespace Application.Products
 
                 var success = await _context.SaveChangesAsync() > 0;
 
-                if (success) return Unit.Value;
+                var productUpdated = await _context.Products.FindAsync(request.Id);
+
+                if (productUpdated == null)
+                    throw new RestException(HttpStatusCode.NotFound, new { product = "Product Not Found" });
+
+                var productToReturn = _mapper.Map<Product, ProductDTO>(productUpdated);
+                if (success) return productToReturn;
 
                 throw new Exception("Problem saving changes");
             }
