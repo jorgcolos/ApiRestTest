@@ -62,6 +62,12 @@ En caso de querer cambiar las variables guardadas en postman para apuntar a una 
 
 ![PostmanVariables](Documentation/ImagesReadme/PostmanVariables.PNG)
 
+## Importante
+
+la mayoría de endpoints se les agrego [AllowAnonymus] por motivos de facilidad en las pruebas, se dejó validado el endpoint **CreateProduct Token Validator** para mostrar la funcionalidad de un usuario no autorizado, pero solo es necesario remover el [AllowAnonymus] en los controladores y todos los endpoints necesitarían tener un usuario logueado
+
+**Para logearse con cualquier usuario utilizar la siguiente contraseña: Elaniin@01**
+
 ## Api realizada con 
 
 * [VisualStudioCode](https://code.visualstudio.com/) - El editor de texto utilizado
