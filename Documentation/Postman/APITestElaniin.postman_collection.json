@@ -1,0 +1,2214 @@
+{
+	"info": {
+		"_postman_id": "f4d607ab-a311-47e1-94f6-d62607bb7346",
+		"name": "APITestElaniin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LocalHost",
+			"item": [
+				{
+					"name": "AllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/Products",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						},
+						"description": "Get all products with paging of 3 products"
+					},
+					"response": []
+				},
+				{
+					"name": "AllProducts limit of 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/Products?limit=2",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Get all products with paging of 2 products"
+					},
+					"response": []
+				},
+				{
+					"name": "AllProducts with Limit2 Offset3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/Products?limit=2&offset=3",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "offset",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Get all products with paging of 2 products and an offset of 3 products"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by SKU",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/Products?sku=ra",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "sku",
+									"value": "ra"
+								}
+							]
+						},
+						"description": "Search products by SKU"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/Products?name=a",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a"
+								}
+							]
+						},
+						"description": "Search products by SKU"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by Prices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/Products?startPrice=100.5&endPrice=280.00",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "startPrice",
+									"value": "100.5"
+								},
+								{
+									"key": "endPrice",
+									"value": "280.00"
+								}
+							]
+						},
+						"description": "Fillter products between two prices"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by Prices Validation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/Products?startPrice=1100.5&endPrice=280.00",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "startPrice",
+									"value": "1100.5"
+								},
+								{
+									"key": "endPrice",
+									"value": "280.00"
+								}
+							]
+						},
+						"description": "Fillter products between two prices validates that the start price cannot be greather than the end price"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/Products/2",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"2"
+							]
+						},
+						"description": "Get only one product"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"mbo1\",\r\n    \"name\": \"ASUS ROG Strix Z390-E\",\r\n    \"quantity\": 97,\r\n    \"price\": 239.99,\r\n    \"description\": \"ASUS ROG Strix Z390-E Gaming LGA 1151 (300 Series) Intel Z390 SATA 6Gb/s ATX Intel Motherboard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Products",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						},
+						"description": "Create a product"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProduct Unauthorized",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"mbo1\",\r\n    \"name\": \"ASUS ROG Strix Z390-E\",\r\n    \"quantity\": 97,\r\n    \"price\": 239.99,\r\n    \"description\": \"ASUS ROG Strix Z390-E Gaming LGA 1151 (300 Series) Intel Z390 SATA 6Gb/s ATX Intel Motherboard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Products/createAuth",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"createAuth"
+							]
+						},
+						"description": "Only LogIn users will be able to create a Product"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProduct Token Validator",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb3JnZSIsIm5iZiI6MTU4ODM4NzkzNCwiZXhwIjoxNTg4NjQ3MTM0LCJpYXQiOjE1ODgzODc5MzR9.-PC-9juqa5rWCMH39dVAQL3G_IrK0XPcfhX5ETKkk_Ih2oz_4jqmGGrpfVyRegCqEh7Fy5KvJRcNwAeXAKb_Zg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"mbo1\",\r\n    \"name\": \"ASUS ROG Strix Z390-E\",\r\n    \"quantity\": 97,\r\n    \"price\": 239.99,\r\n    \"description\": \"ASUS ROG Strix Z390-E Gaming LGA 1151 (300 Series) Intel Z390 SATA 6Gb/s ATX Intel Motherboard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Products/createAuth",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"createAuth"
+							]
+						},
+						"description": "Only LogIn users will be able to create a Product, the Token must be used here"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProduct ValidateFields",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"mbo1\",\r\n    \"name\": \"\",\r\n    \"description\": \"ASUS ROG Strix Z390-E Gaming LGA 1151 (300 Series) Intel Z390 SATA 6Gb/s ATX Intel Motherboard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Products",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						},
+						"description": "Create a product and test the validation for the Name, Price and Quantity"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"WD Blue 3D NAND 2TB\",\r\n    \"quantity\": 45,\r\n    \"price\": 225.99,\r\n    \"description\": \"WD Blue 3D NAND 2TB Internal SSD - SATA III 6Gb/s 2.5 Solid State Drive - WDS100T2B0A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Products/4",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"4"
+							]
+						},
+						"description": "Update a product"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct ValidateFields",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"quantity\": null,\r\n    \"price\": null,\r\n    \"description\": \"WD Blue 3D NAND 2TB Internal SSD - SATA III 6Gb/s 2.5 Solid State Drive - WDS100T2B0A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Products/4",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"4"
+							]
+						},
+						"description": "Update a product and thes that the Name, Price and Quantity can't be empty"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/Products/1",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"1"
+							]
+						},
+						"description": "Delete a product by id"
+					},
+					"response": []
+				},
+				{
+					"name": "LoginJorge",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"password\":\"Elaniin@01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/login",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login BadPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"password\":\"Test@01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/login",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						},
+						"description": "Test for an incorrect Password"
+					},
+					"response": []
+				},
+				{
+					"name": "Login IncorrectFormatEmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"jorgcolosgmail.com\",\n\t\"password\":\"Elaniin@01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/login",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						},
+						"description": "Test that the email it's an email format"
+					},
+					"response": []
+				},
+				{
+					"name": "AllUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User"
+							]
+						},
+						"description": "Get current log user"
+					},
+					"response": []
+				},
+				{
+					"name": "AllUsers Filter by Name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User?name=ef",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ef"
+								}
+							]
+						},
+						"description": "Get current log user"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/2",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"2"
+							]
+						},
+						"description": "Get current log user"
+					},
+					"response": []
+				},
+				{
+					"name": "GetCurrentUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb3JnZSIsIm5iZiI6MTU4ODM4NzkzNCwiZXhwIjoxNTg4NjQ3MTM0LCJpYXQiOjE1ODgzODc5MzR9.-PC-9juqa5rWCMH39dVAQL3G_IrK0XPcfhX5ETKkk_Ih2oz_4jqmGGrpfVyRegCqEh7Fy5KvJRcNwAeXAKb_Zg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/currentUser",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"currentUser"
+							]
+						},
+						"description": "Get current log user"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"juan\",\n\t\"email\": \"juan@email.com\",\n\t\"password\":\"Elaniin@01\",\n\t\"name\":\"juan perez\",\n\t\"phoneNumber\": \"22222222\",\n\t\"Birthday\": \"2000-03-29T13:34:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/register",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser Validations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"\",\n\t\"email\": \"\",\n\t\"password\":\"1\",\n\t\"name\":\"\",\n\t\"phoneNumber\": \"numero\",\n\t\"Birthday\": \"2000-03-29T13:34:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/register",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						},
+						"description": "Validation for the Name, Email and Username can not be empy\nPassword must be at leas 6 characters and contain lowercase, uppercase, numbers and non alphanumerics characters\nPhone number can be only numbers and between 7 and 11 digits"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser Validate Username Exists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jorge\",\n\t\"email\": \"jorge@email.com\",\n\t\"password\":\"Elaniin@01\",\n\t\"name\":\"jorge\",\n\t\"Birthday\": \"2000-03-29T13:34:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/register",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						},
+						"description": "Validation if the username already exists"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser Validate Email Exists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jaherrera\",\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"password\":\"Elaniin@01\",\n\t\"name\":\"jorge\",\n\t\"Birthday\": \"2000-03-29T13:34:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/register",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						},
+						"description": "Validation if the email already exists"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"carlos\",\n\t\"email\": \"carlos@email.com\",\n\t\"name\":\"Carlos Hernandez\",\n\t\"phoneNumber\": \"22222222\",\n\t\"Birthday\": \"1984-04-01T00:00:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/4",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"4"
+							]
+						},
+						"description": "You can edit the data for the user\nYou can't update the password in this method"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser Validate Changes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jorge\",\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"name\": \"Jorge Herrera\",\n\t\"phoneNumber\": \"22577777\",\n    \"birthday\": \"1989-08-22T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/1",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"1"
+							]
+						},
+						"description": "Validation when update data and hasn't have any changes"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser Validate Email Exists",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jorge\",\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"name\": \"Jorge Herrera\",\n\t\"phoneNumber\": \"22577777\",\n    \"birthday\": \"1989-08-22T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/4",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"4"
+							]
+						},
+						"description": "Validation when update data and the email is already in use by another user"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser Validate UserName Exists",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jorge\",\n\t\"email\": \"jorgcolos@email.com\",\n\t\"name\": \"Jorge Herrera\",\n\t\"phoneNumber\": \"22577777\",\n    \"birthday\": \"1989-08-22T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/User/4",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"4"
+							]
+						},
+						"description": "Validation when update data and the UserName is already in use by another user"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlLocal}}/api/User/4",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"4"
+							]
+						},
+						"description": "Delete am user by id"
+					},
+					"response": []
+				},
+				{
+					"name": "AddImage on Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "/C:/Users/jaherrera/Desktop/Jackpot.png"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Image/2",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2"
+							]
+						},
+						"description": "Add image to one product \nIf the product doesn't have main image it will make it as main"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImage",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Image/2/1",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2",
+								"1"
+							]
+						},
+						"description": "Delete image for the product and idImage"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImage ImageNotFounc",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Image/2/100",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2",
+								"100"
+							]
+						},
+						"description": "Validation for an image that its not found"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImage MainImage Validation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Image/2/3",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2",
+								"3"
+							]
+						},
+						"description": "Validation for trying to delete main image"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImage ProductNotFound Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Image/100/2",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"100",
+								"2"
+							]
+						},
+						"description": "Validation for an image that its not found"
+					},
+					"response": []
+				},
+				{
+					"name": "SetMain Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlLocal}}/api/Image/2/4/setMain",
+							"host": [
+								"{{urlLocal}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2",
+								"4",
+								"setMain"
+							]
+						},
+						"description": "Set image for the product"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Produccion",
+			"item": [
+				{
+					"name": "AllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						},
+						"description": "Get all products with paging of 3 products"
+					},
+					"response": []
+				},
+				{
+					"name": "AllProducts limit of 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products?limit=2",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Get all products with paging of 2 products"
+					},
+					"response": []
+				},
+				{
+					"name": "AllProducts with Limit2 Offset3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products?limit=2&offset=3",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "offset",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Get all products with paging of 2 products and an offset of 3 products"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by SKU",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products?sku=ra",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "sku",
+									"value": "ra"
+								}
+							]
+						},
+						"description": "Search products by SKU"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products?name=a",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "a"
+								}
+							]
+						},
+						"description": "Search products by Name, case insensitive"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by Prices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products?startPrice=100.5&endPrice=280.00",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "startPrice",
+									"value": "100.5"
+								},
+								{
+									"key": "endPrice",
+									"value": "280.00"
+								}
+							]
+						},
+						"description": "Fillter products between two prices"
+					},
+					"response": []
+				},
+				{
+					"name": "Products by Prices Validation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products?startPrice=1100.5&endPrice=280.00",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "startPrice",
+									"value": "1100.5"
+								},
+								{
+									"key": "endPrice",
+									"value": "280.00"
+								}
+							]
+						},
+						"description": "Fillter products between two prices validates that the start price cannot be greather than the end price"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products/2",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"2"
+							]
+						},
+						"description": "Get only one product"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"mbo1\",\r\n    \"name\": \"ASUS ROG Strix Z390-E\",\r\n    \"quantity\": 97,\r\n    \"price\": 239.99,\r\n    \"description\": \"ASUS ROG Strix Z390-E Gaming LGA 1151 (300 Series) Intel Z390 SATA 6Gb/s ATX Intel Motherboard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						},
+						"description": "Create a product"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProduct Unauthorized",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"mbo1\",\r\n    \"name\": \"ASUS ROG Strix Z390-E\",\r\n    \"quantity\": 97,\r\n    \"price\": 239.99,\r\n    \"description\": \"ASUS ROG Strix Z390-E Gaming LGA 1151 (300 Series) Intel Z390 SATA 6Gb/s ATX Intel Motherboard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products/createAuth",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"createAuth"
+							]
+						},
+						"description": "Only LogIn users will be able to create a Product"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProduct Token Validator",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb3JnZSIsIm5iZiI6MTU4ODM4NzkzNCwiZXhwIjoxNTg4NjQ3MTM0LCJpYXQiOjE1ODgzODc5MzR9.-PC-9juqa5rWCMH39dVAQL3G_IrK0XPcfhX5ETKkk_Ih2oz_4jqmGGrpfVyRegCqEh7Fy5KvJRcNwAeXAKb_Zg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"mbo1\",\r\n    \"name\": \"ASUS ROG Strix Z390-E\",\r\n    \"quantity\": 97,\r\n    \"price\": 239.99,\r\n    \"description\": \"ASUS ROG Strix Z390-E Gaming LGA 1151 (300 Series) Intel Z390 SATA 6Gb/s ATX Intel Motherboard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products/createAuth",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"createAuth"
+							]
+						},
+						"description": "Only LogIn users will be able to create a Product, the Token must be place on the Headers Tab and change the valie for the login token"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProduct ValidateFields",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"mbo1\",\r\n    \"name\": \"\",\r\n    \"description\": \"ASUS ROG Strix Z390-E Gaming LGA 1151 (300 Series) Intel Z390 SATA 6Gb/s ATX Intel Motherboard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products"
+							]
+						},
+						"description": "Create a product and test the validation for the Name, Price and Quantity"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"WD Blue 3D NAND 2TB\",\r\n    \"quantity\": 45,\r\n    \"price\": 225.99,\r\n    \"description\": \"WD Blue 3D NAND 2TB Internal SSD - SATA III 6Gb/s 2.5 Solid State Drive - WDS100T2B0A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products/4",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"4"
+							]
+						},
+						"description": "Update a product"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct ValidateFields",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"quantity\": null,\r\n    \"price\": null,\r\n    \"description\": \"WD Blue 3D NAND 2TB Internal SSD - SATA III 6Gb/s 2.5 Solid State Drive - WDS100T2B0A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products/4",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"4"
+							]
+						},
+						"description": "Update a product and thes that the Name, Price and Quantity can't be empty"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/Products/1",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Products",
+								"1"
+							]
+						},
+						"description": "Delete a product by id"
+					},
+					"response": []
+				},
+				{
+					"name": "LoginJorge",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"password\":\"Elaniin@01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/login",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login BadPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"password\":\"Test@01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/login",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						},
+						"description": "Test for an incorrect Password"
+					},
+					"response": []
+				},
+				{
+					"name": "Login IncorrectFormatEmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"jorgcolosgmail.com\",\n\t\"password\":\"Elaniin@01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/login",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						},
+						"description": "Test that the email it's an email format"
+					},
+					"response": []
+				},
+				{
+					"name": "AllUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User"
+							]
+						},
+						"description": "Get current log user"
+					},
+					"response": []
+				},
+				{
+					"name": "AllUsers Filter by Name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User?name=ef",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ef"
+								}
+							]
+						},
+						"description": "Get current log user"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/2",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"2"
+							]
+						},
+						"description": "Get current log user"
+					},
+					"response": []
+				},
+				{
+					"name": "GetCurrentUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb3JnZSIsIm5iZiI6MTU4ODM4NzkzNCwiZXhwIjoxNTg4NjQ3MTM0LCJpYXQiOjE1ODgzODc5MzR9.-PC-9juqa5rWCMH39dVAQL3G_IrK0XPcfhX5ETKkk_Ih2oz_4jqmGGrpfVyRegCqEh7Fy5KvJRcNwAeXAKb_Zg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/currentUser",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"currentUser"
+							]
+						},
+						"description": "Get current log user"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"juan\",\n\t\"email\": \"juan@email.com\",\n\t\"password\":\"Elaniin@01\",\n\t\"name\":\"juan perez\",\n\t\"phoneNumber\": \"22222222\",\n\t\"Birthday\": \"2000-03-29T13:34:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/register",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser Validations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"\",\n\t\"email\": \"\",\n\t\"password\":\"1\",\n\t\"name\":\"\",\n\t\"phoneNumber\": \"numero\",\n\t\"Birthday\": \"2000-03-29T13:34:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/register",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						},
+						"description": "Validation for the Name, Email and Username can not be empy\nPassword must be at leas 6 characters and contain lowercase, uppercase, numbers and non alphanumerics characters\nPhone number can be only numbers and between 7 and 11 digits"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser Validate Username Exists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jorge\",\n\t\"email\": \"jorge@email.com\",\n\t\"password\":\"Elaniin@01\",\n\t\"name\":\"jorge\",\n\t\"Birthday\": \"2000-03-29T13:34:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/register",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						},
+						"description": "Validation if the username already exists"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser Validate Email Exists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jaherrera\",\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"password\":\"Elaniin@01\",\n\t\"name\":\"jorge\",\n\t\"Birthday\": \"2000-03-29T13:34:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/register",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						},
+						"description": "Validation if the email already exists"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"carlos\",\n\t\"email\": \"carlos@email.com\",\n\t\"name\":\"Carlos Hernandez\",\n\t\"phoneNumber\": \"22222222\",\n\t\"Birthday\": \"1984-04-01T00:00:00.000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/4",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"4"
+							]
+						},
+						"description": "You can edit the data for the user\nYou can't update the password in this method"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser Validate Changes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jorge\",\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"name\": \"Jorge Herrera\",\n\t\"phoneNumber\": \"22577777\",\n    \"birthday\": \"1989-08-22T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/1",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"1"
+							]
+						},
+						"description": "Validation when update data and hasn't have any changes"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser Validate Email Exists",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jorge\",\n\t\"email\": \"jorgcolos@gmail.com\",\n\t\"name\": \"Jorge Herrera\",\n\t\"phoneNumber\": \"22577777\",\n    \"birthday\": \"1989-08-22T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/4",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"4"
+							]
+						},
+						"description": "Validation when update data and the email is already in use by another user"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser Validate UserName Exists",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\": \"jorge\",\n\t\"email\": \"jorgcolos@email.com\",\n\t\"name\": \"Jorge Herrera\",\n\t\"phoneNumber\": \"22577777\",\n    \"birthday\": \"1989-08-22T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/4",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"4"
+							]
+						},
+						"description": "Validation when update data and the UserName is already in use by another user"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlProduccion}}/api/User/4",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"4"
+							]
+						},
+						"description": "Delete am user by id"
+					},
+					"response": []
+				},
+				{
+					"name": "AddImage on Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "/C:/Users/jaherrera/Desktop/Images/SSD200.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Image/2",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2"
+							]
+						},
+						"description": "Add image to one product \nIf the product doesn't have main image it will make it as main"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImage",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Image/2/9",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2",
+								"9"
+							]
+						},
+						"description": "Delete image for the product and idImage"
+					},
+					"response": []
+				},
+				{
+					"name": "SetMain Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Image/2/4/setMain",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2",
+								"4",
+								"setMain"
+							]
+						},
+						"description": "Set image for the product"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImage ImageNotFounc",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Image/2/100",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2",
+								"100"
+							]
+						},
+						"description": "Validation for an image that its not found"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImage MainImage Validation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Image/2/3",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"2",
+								"3"
+							]
+						},
+						"description": "Validation for trying to delete main image"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImage ProductNotFound Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlProduccion}}/api/Image/100/2",
+							"host": [
+								"{{urlProduccion}}"
+							],
+							"path": [
+								"api",
+								"Image",
+								"100",
+								"2"
+							]
+						},
+						"description": "Validation for an image that its not found"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "732c95fa-1ef9-4684-9435-3d0de8a611ed",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "75b24190-5589-4e06-bf31-9e0c9231e162",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "75f425df-8891-489b-b183-e17067d1e085",
+			"key": "urlLocal",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"id": "12f12f0b-0a50-4ad2-9787-8cf68ebb45ab",
+			"key": "urlProduccion",
+			"value": "https://elaniinapitest.herokuapp.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
