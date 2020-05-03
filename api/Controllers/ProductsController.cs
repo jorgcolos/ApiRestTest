@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Aplication.Products;
+using Application.Products;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -14,7 +14,7 @@ namespace api.Controllers
         [HttpGet]
         [AllowAnonymous]
         //get all the products
-        public async Task<ActionResult<List<Product>>> List()
+        public async Task<ActionResult<List<ProductDTO>>> List()
         {
             return await Mediator.Send(new List.Query());
         }
@@ -22,7 +22,7 @@ namespace api.Controllers
         [HttpGet("{id}")]
         [AllowAnonymous]
         //Get product by id
-        public async Task<ActionResult<Product>> Details(int id)
+        public async Task<ActionResult<ProductDTO>> Details(int id)
         {
             return await Mediator.Send(new Details.Query { Id = id });
         }

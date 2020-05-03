@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Aplication.User;
+using Application.User;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

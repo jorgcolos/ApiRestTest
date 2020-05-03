@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Repo\\ApiRestTest\\api\\api.csproj": {}
+    "C:\\Repo\\ApiRestTest\\api\\api.csproj": {}
   },
   "projects": {
-    "c:\\Repo\\ApiRestTest\\api\\api.csproj": {
+    "C:\\Repo\\ApiRestTest\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Repo\\ApiRestTest\\api\\api.csproj",
+        "projectUniqueName": "C:\\Repo\\ApiRestTest\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "c:\\Repo\\ApiRestTest\\api\\api.csproj",
+        "projectPath": "C:\\Repo\\ApiRestTest\\api\\api.csproj",
         "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
-        "outputPath": "c:\\Repo\\ApiRestTest\\api\\obj\\",
+        "outputPath": "C:\\Repo\\ApiRestTest\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,11 +30,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj": {
-                "projectPath": "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj"
+              "C:\\Repo\\ApiRestTest\\Application\\Application.csproj": {
+                "projectPath": "C:\\Repo\\ApiRestTest\\Application\\Application.csproj"
               },
-              "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -83,14 +83,14 @@
         }
       }
     },
-    "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj": {
+    "C:\\Repo\\ApiRestTest\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj",
-        "projectName": "Aplication",
-        "projectPath": "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj",
+        "projectUniqueName": "C:\\Repo\\ApiRestTest\\Application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\Repo\\ApiRestTest\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
-        "outputPath": "c:\\Repo\\ApiRestTest\\Aplication\\obj\\",
+        "outputPath": "C:\\Repo\\ApiRestTest\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -109,11 +109,11 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
-                "projectPath": "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj"
+              "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj"
               },
-              "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj": {
-                "projectPath": "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj"
+              "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -127,6 +127,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[8.6.2, )"
@@ -169,14 +173,14 @@
         }
       }
     },
-    "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
+    "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
-        "outputPath": "c:\\Repo\\ApiRestTest\\Domain\\obj\\",
+        "outputPath": "C:\\Repo\\ApiRestTest\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -244,14 +248,14 @@
         }
       }
     },
-    "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "c:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Repo\\ApiRestTest\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
-        "outputPath": "c:\\Repo\\ApiRestTest\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Repo\\ApiRestTest\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -270,8 +274,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj": {
-                "projectPath": "c:\\Repo\\ApiRestTest\\Aplication\\Aplication.csproj"
+              "C:\\Repo\\ApiRestTest\\Application\\Application.csproj": {
+                "projectPath": "C:\\Repo\\ApiRestTest\\Application\\Application.csproj"
               }
             }
           }
@@ -285,6 +289,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.10.0, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.5.1, )"
@@ -323,14 +331,14 @@
         }
       }
     },
-    "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj": {
+    "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "c:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Repo\\ApiRestTest\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\jaherrera\\.nuget\\packages\\",
-        "outputPath": "c:\\Repo\\ApiRestTest\\Persistence\\obj\\",
+        "outputPath": "C:\\Repo\\ApiRestTest\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -349,8 +357,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
-                "projectPath": "c:\\Repo\\ApiRestTest\\Domain\\Domain.csproj"
+              "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Repo\\ApiRestTest\\Domain\\Domain.csproj"
               }
             }
           }
@@ -365,6 +373,10 @@
         "netcoreapp3.0": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
               "version": "[3.1.2, )"
             },

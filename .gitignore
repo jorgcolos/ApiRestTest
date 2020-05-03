@@ -1,7 +1,7 @@
 api/bin/
 api/obj/
-Aplication/bin/
-Aplication/obj/
+Application/bin/
+Application/obj/
 Domain/bin/
 Domain/obj/
 Persistence/bin/

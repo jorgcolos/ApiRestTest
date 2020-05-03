@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using api.Middleware;
-using Aplication.Interfaces;
-using Aplication.Products;
+using Application.Interfaces;
+using Application.Products;
+using Infrastructure.Images;
+using AutoMapper;
 using Domain;
 using FluentValidation.AspNetCore;
 using Infrastructure.Security;
@@ -42,6 +44,7 @@ namespace api
         {
             services.AddDbContext<DataContext>(opt =>
             {
+                opt.UseLazyLoadingProxies();
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
@@ -74,6 +77,7 @@ namespace api
             });
 
             services.AddMediatR(typeof(List.Handler).Assembly);
+            services.AddAutoMapper(typeof(List.Handler).Assembly);
             services.AddControllers(opt =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
@@ -86,6 +90,8 @@ namespace api
 
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<IUserAccessor, UserAccessor>();
+            services.AddScoped<IImageAccessor, ImageAccessor>();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
